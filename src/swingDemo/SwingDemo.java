@@ -16,4 +16,3 @@ public class SwingDemo {
 
 }
 
-//this comment is added to test if a commit and push went through
