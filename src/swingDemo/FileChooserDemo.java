@@ -6,16 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileWriter;
-import java.net.MalformedURLException;
-import java.rmi.Naming;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
+
 
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+
 import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
 
@@ -64,11 +61,10 @@ public class FileChooserDemo extends JFrame {
 				}
 				else {
 					
-				}
-				
-				
+				}				
 			}
 	 	}); 
+		
 		Box box = Box.createVerticalBox();
 		box.add(tx3);
 		box.add(save);
