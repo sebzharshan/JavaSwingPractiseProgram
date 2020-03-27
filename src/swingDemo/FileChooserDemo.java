@@ -11,10 +11,12 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
 
 @SuppressWarnings("serial")
@@ -22,6 +24,7 @@ public class FileChooserDemo extends JFrame {
 	
 	JTextComponent tx1;
 	TextArea tx3;
+	JTextField jt1;
 	JButton save;
 	
 	public FileChooserDemo() {
@@ -33,6 +36,8 @@ public class FileChooserDemo extends JFrame {
 		
 		tx3  = new TextArea();
 		save = new JButton("save");
+		
+		jt1 = new JTextField();
 			
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -43,11 +48,13 @@ public class FileChooserDemo extends JFrame {
 				
 				if(result == JFileChooser.APPROVE_OPTION) {
 					String content = tx3.getText();
+					String content2 = jt1.getText();
 					File fi = fs.getSelectedFile();
 					try {
 						
 						FileWriter fw = new FileWriter(fi.getPath());
 						fw.write(content);
+						fw.write(content2);
 						fw.flush();
 						fw.close();
 					}
@@ -62,10 +69,12 @@ public class FileChooserDemo extends JFrame {
 				
 			}
 	 	}); 
+		Box box = Box.createVerticalBox();
+		box.add(tx3);
+		box.add(save);
+		box.add(jt1);
 		
-		add(tx3);
-		add(save);
-		
+		add(box);
 	}
 
 }
